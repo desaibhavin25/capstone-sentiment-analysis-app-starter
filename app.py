@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import pickle, os
+import pickle
 from tensorflow.python.keras.layers import Dense
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import sequence
@@ -60,4 +60,4 @@ def index():
     
 
 if __name__ == "__main__":
- app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 4000)))
+ app.run(host="0.0.0.0", port=4000)
