@@ -10,6 +10,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 app = Flask(__name__)
 
+
 def sentiment_analysis(input):
             user_sequences = tokenizer.texts_to_sequences([input])
             user_sequences_matrix = sequence.pad_sequences(user_sequences, maxlen=1225)
@@ -59,4 +60,4 @@ def index():
     
 
 if __name__ == "__main__":
- app.run()
+ app.run(port=4000)
