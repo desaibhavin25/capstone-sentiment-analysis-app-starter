@@ -4,12 +4,15 @@ import pickle
 from tensorflow.python.keras.layers import Dense
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import sequence
+from flask_socketio import SocketIO
 
 from flask import Flask, render_template, request
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'blahBlah'
+app.config['SERVER_NAME'] = '127.0.0.1:8000'
+socket = SocketIO(app)
 
 def sentiment_analysis(input):
             user_sequences = tokenizer.texts_to_sequences([input])
@@ -60,4 +63,4 @@ def index():
     
 
 if __name__ == "__main__":
- app.run(host="0.0.0.0", port=8000)
+ app.run()
